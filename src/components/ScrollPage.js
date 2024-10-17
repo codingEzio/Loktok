@@ -1,7 +1,9 @@
 // src/components/ScrollPage.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './ScrollPage.css'; // Importing CSS for styling
+import './ScrollPage.css'; // Retain if additional custom styles are needed
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 function ScrollPage() {
   const [posts, setPosts] = useState([]);
@@ -58,17 +60,31 @@ function ScrollPage() {
   }, [hasMore, loading]);
 
   return (
-    <div className="scroll-page">
-      {posts.map(post => (
-        <div key={post.id} className="post">
-          <img src={post.imageUrl} alt={`Post ${post.id}`} className="post-image" />
-          <div className="post-text">
-            <p>{post.text}</p>
+    <div className="container mx-auto px-4 py-8">
+      <div className="space-y-8">
+        {posts.map(post => (
+          <div key={post.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src={post.imageUrl} alt={`Post ${post.id}`} className="w-full h-96 object-cover"/>
+            <div className="p-4">
+              <p className="text-gray-800">{post.text}</p>
+            </div>
           </div>
+        ))}
+      </div>
+      {/* Loading Indicator */}
+      {loading && (
+        <div className="flex justify-center items-center mt-8">
+          <FontAwesomeIcon icon={faSpinner} spin className="text-blue-600 mr-2" />
+          <span className="text-blue-600 text-lg">Loading more posts...</span>
         </div>
-      ))}
-      {loading && <div className="loading">Loading more posts...</div>}
-      {!hasMore && <div className="end">You've reached the end!</div>}
+      )}
+      {/* End Message */}
+      {!hasMore && (
+        <div className="flex justify-center items-center mt-8">
+          <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />
+          <span className="text-green-500 text-lg">You've reached the end!</span>
+        </div>
+      )}
     </div>
   );
 }

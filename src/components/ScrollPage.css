@@ -1,38 +1,9 @@
 /* src/components/ScrollPage.css */
 
-.scroll-page {
-    overflow-y: auto;
-    height: calc(100vh - 60px); /* Adjust based on navbar height */
-    scroll-snap-type: y mandatory;
-  }
+/* Optional: Custom styles for ScrollPage can go here */
 
-  .post {
-    scroll-snap-align: start;
-    height: 100vh;
-    position: relative;
-  }
-
-  .post-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .post-text {
-    position: absolute;
-    bottom: 50px;
-    left: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    max-height: 40%;
-    overflow-y: auto;
-  }
-
-  .loading, .end {
-    text-align: center;
-    padding: 20px;
-    font-size: 1.2em;
+/* Example: Adjust image hover effects */
+.post-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
   }
