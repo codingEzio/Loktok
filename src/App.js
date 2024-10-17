@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Introduction from './components/Introduction';
+import ProfileSettings from './components/ProfileSettings';
+import ScrollPage from './components/ScrollPage';
+import './App.css'; // Importing global styles
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <div>
+        {/* Navigation Bar */}
+        <nav className="navbar">
+          <ul className="nav-links">
+            <li><Link to="/">Introduction</Link></li>
+            <li><Link to="/profile">Profile + Settings</Link></li>
+            <li><Link to="/scroll">Scroll Page</Link></li>
+          </ul>
+        </nav>
+
+        {/* Route Definitions */}
+        <Routes>
+          <Route path="/" element={<Introduction />} />
+          <Route path="/profile" element={<ProfileSettings />} />
+          <Route path="/scroll" element={<ScrollPage />} />
+          {/* Fallback Route for Undefined Paths */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+// Optional: 404 Not Found Component
+function NotFound() {
+  return (
+    <div className="page">
+      <h1>404 - Page Not Found</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <Link to="/">Go to Introduction Page</Link>
     </div>
   );
 }
