@@ -6,6 +6,10 @@ import ProfileSettings from './components/ProfileSettings';
 import ScrollPage from './components/ScrollPage';
 import './App.css'; // Importing global styles
 
+// FontAwesome Imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faScroll, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+
 function App() {
   return (
     <Router>

@@ -1,66 +1,9 @@
 /* src/App.css */
 
-/* #TODO Optional: Custom styles can go here */
-
-/* Reset and global styles */
-body, html, #root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+/* Example: Adjust link focus outlines for accessibility */
+a:focus {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
 }
 
-/* Page Container */
-.page {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-  background-color: white;
-  min-height: calc(100vh - 60px); /* Adjust based on navbar height */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-}
-
-/* Navigation Bar */
-.navbar {
-  background-color: #333;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 0 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
-}
+/* Optional: Custom styles can go here */
